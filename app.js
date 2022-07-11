@@ -15,7 +15,7 @@ let guess = document.getElementById("guess");
 let sports = [];
 let tvShows = ["bobs burgers", "the good place", "the walking dead",
 "the young and the restless", "drake and josh", "icarly", "the boys"];
-let movies = ["baby driver", "The Avengers", ""];
+let movies = ["baby driver", "the avengers", "pulp fiction", "inception", "interstellar", "forrest gump", "parasite", "aliens"];
 let secretWord = "";
 let allArrays = [];
 let chosenArray = [];
