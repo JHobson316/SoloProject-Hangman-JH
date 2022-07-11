@@ -47,6 +47,44 @@ allArrays.push(O);
 allArrays.push(U);
 console.log(allArrays);
 
+// Hangman Pictures (Currently very much not working)
+//HANGMAN_PICS = ['''
+//  +---+
+//      |
+//      |
+//      |
+//     ===''', '''
+//  +---+
+//  O   |
+//      |
+//      |
+//     ===''', '''
+//  +---+
+//  O   |
+//  |   |
+//      |
+//     ===''', '''
+//  +---+
+//  O   |
+// /|   |
+//      |
+//     ===''', '''
+//  +---+
+//  O   |
+// /|\  |
+//      |
+//     ===''', '''
+//  +---+
+//  O   |
+// /|\  |
+// /    |
+//     ===''', '''
+//  +---+
+//  O   |
+// /|\  |
+// / \  |
+//     ===''']
+
 // Functions
 
 start.addEventListener('click', function(){
