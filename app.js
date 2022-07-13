@@ -10,96 +10,82 @@ let guessField = document.getElementById("guess-field");
 let start = document.getElementById("start");
 let reset = document.getElementById("reset");
 let guess = document.getElementById("guess");
+let select = document.getElementById("select");
+let usedLetters = document.getElementById("usedLetters");
+let wordDisplay = document.getElementById("wordDisplay");
+let lives = 6;
 
 // Variable declaration
-let sports = [];
+let sports = "baseball basketball football badminton fencing jousting volleyball tennis cycling hurdles diving dodgeball nascar".split(" ");
 let tvShows = ["bobs burgers", "the good place", "the walking dead",
 "the young and the restless", "drake and josh", "icarly", "the boys"];
-let movies = ["baby driver", "the avengers", "pulp fiction", "inception", "interstellar", "forrest gump", "parasite", "aliens"];
-let secretWord = "";
+let movies = ["baby driver", "the avengers", "pulp fiction", "inception", "interstellar", "forrest gump", "parasite", "aliens", "terminator"];
 let allArrays = [];
-let chosenArray = [];
 
 // Setting up extra arrays pulled from python file
 
-let P = "bulbasaur ivysaur venusaur charmander charmeleon \
+let p = "bulbasaur ivysaur venusaur charmander charmeleon \
 charizard squirtle wartortle blastoise caterpie metapod \
 butterfree weedle kakuna beedril pidgey pidgeotto pidgeot \
 rattatta raticate spearow fearow ekans arbok pikachu\
 raichu sandshrew sandslash nidoran nidorina \
 nidoqueen nidorino nidoking".split(" ");
 
-let O ="ana ashe baptiste bastion \
-brigitte dva doomfist genji hanzo junkrat lucio mccree mei mercy moira \
-orisa pharah reaper reinhardt roadhog soldier sombra symmetra torbjorn tracer \
-widowmaker winston hammond zarya zenyatta".split()
+let o ="ana ashe baptiste bastion brigitte dva doomfist genji hanzo junkrat lucio\
+ cassidy mei mercy moira orisa pharah reaper reinhardt roadhog soldier sombra symmetra\
+ torbjorn tracer widowmaker winston hammond zarya zenyatta".split(" ");
 
-let U ="sans \
-papyrus toriel flowey frisk mettaton napstablook alphys asriel kris ralsei lancer \
-susie undyne gaster berdly catty bratty noelle temmie egg chara asgore muffet \
-burgerpants".split();
+let u ="sans papyrus toriel flowey frisk mettaton napstablook alphys asriel kris ralsei\
+ lancer susie undyne gaster berdly catty bratty noelle temmie egg chara asgore muffet\
+ burgerpants".split(" ");
 
+// Pushing all of the arrays to a single array
+// Probably made this more complicated than it needed to be
 allArrays.push(sports);
 allArrays.push(tvShows);
 allArrays.push(movies);
-allArrays.push(P);
-allArrays.push(O);
-allArrays.push(U);
+allArrays.push(p);
+allArrays.push(o);
+allArrays.push(u);
 console.log(allArrays);
 
+
+// Insporation and solution from https://github.com/SimonLeclere/discord-hangman
+// Credit where credit is due
 // Hangman Pictures (Currently very much not working)
-//HANGMAN_PICS = ['''
-//  +---+
-//      |
-//      |
-//      |
-//     ===''', '''
-//  +---+
-//  O   |
-//      |
-//      |
-//     ===''', '''
-//  +---+
-//  O   |
-//  |   |
-//      |
-//     ===''', '''
-//  +---+
-//  O   |
-// /|   |
-//      |
-//     ===''', '''
-//  +---+
-//  O   |
-// /|\  |
-//      |
-//     ===''', '''
-//  +---+
-//  O   |
-// /|\  |
-// /    |
-//     ===''', '''
-//  +---+
-//  O   |
-// /|\  |
-// / \  |
-//     ===''']
-
-// Functions
-
-start.addEventListener('click', function(){
-    secretWord();
-
-});
-
-
-function wordSelect(){
-    let chosenArray = [];
-    let randIndex = Math.floor(Math.random()*chosenArray.length);
+function getFigure(){
+return `
+  +---+
+      |
+      |
+      |
+     ===''', '''
+`
 }
-//function start(){
+// Functions
+reset.addEventListener('click', function(e){
+    e.preventDefault();
+    wordDisplay.innerHTML = " ";
+});
+start.addEventListener('click', function(e){
+    e.preventDefault();
+    wordDisplay.innerHTML = " ";
+    let chosenArray = select.value;
+    console.log(select.value); // Works
+    let selectedArray = allArrays[chosenArray]; 
+    console.log(selectedArray) // Works
+    let randIndex = Math.floor(Math.random()*selectedArray.length);
+    let selectedWord = selectedArray[randIndex];
+    let letterArray = selectedWord.split("");
+    console.log(selectedWord.split(""));
+    displayWord(letterArray);
+});
+function displayWord(wordArray){
+    for (let i = 0; i<wordArray.length; i++){
+        wordDisplay.innerHTML = wordDisplay.innerHTML + wordArray[i];
+    }
+}
 
-//}
 //function start(){
 
 //}

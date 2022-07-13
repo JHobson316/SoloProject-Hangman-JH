@@ -12,14 +12,18 @@
     <h3>Select a category and then click the button to start a game!</h3>
     <div id="main-container">
         <div id="hangman-display">
-
+            <div id="usedLetters"></div>
+            <div id="wordDisplay"></div>
         </div>
         <form id="guess-field">
             <input type="text" id="guess">
-            <select>
-                <option value="sports">Sports</option>
-                <option value="tvShows">TV Shows</option>
-                <option value="movies">Movies</option>
+            <select id="select">
+                <option value="3">Pokemon</option>
+                <option value="5">Undertale Characters</option>
+                <option value="4">Overwatch Heroes</option>
+                <option value="0">Sports</option>
+                <option value="1">TV Shows</option>
+                <option value="2">Movies</option>
             </select>
             <button id="start">Start!</button>
             <button id="reset">Reset Game</button>
