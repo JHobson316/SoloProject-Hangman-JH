@@ -17,9 +17,11 @@ let lives = 6;
 
 // Variable declaration
 let sports = "baseball basketball football badminton fencing jousting volleyball tennis cycling hurdles diving dodgeball nascar".split(" ");
-let tvShows = ["bobs burgers", "the good place", "the walking dead",
-"the young and the restless", "drake and josh", "icarly", "the boys"];
-let movies = ["baby driver", "the avengers", "pulp fiction", "inception", "interstellar", "forrest gump", "parasite", "aliens", "terminator"];
+let tvShows = ["bobs-burgers", "the-good-place", "the-walking-dead",
+    "the young-and-the-restless", "drake-and-josh", "icarly", "the-boys"];
+let movies = ["baby driver", "the-avengers", "pulp-fiction", "inception",
+    "interstellar", "forrest-gump", "parasite", "aliens", "terminator", "soul",
+    "moana", "lion-king", "the-mitchells-vs-the-machines"];
 let allArrays = [];
 
 // Setting up extra arrays pulled from python file
@@ -31,11 +33,11 @@ rattatta raticate spearow fearow ekans arbok pikachu\
 raichu sandshrew sandslash nidoran nidorina \
 nidoqueen nidorino nidoking".split(" ");
 
-let o ="ana ashe baptiste bastion brigitte dva doomfist genji hanzo junkrat lucio\
+let o = "ana ashe baptiste bastion brigitte dva doomfist genji hanzo junkrat lucio\
  cassidy mei mercy moira orisa pharah reaper reinhardt roadhog soldier sombra symmetra\
  torbjorn tracer widowmaker winston hammond zarya zenyatta".split(" ");
 
-let u ="sans papyrus toriel flowey frisk mettaton napstablook alphys asriel kris ralsei\
+let u = "sans papyrus toriel flowey frisk mettaton napstablook alphys asriel kris ralsei\
  lancer susie undyne gaster berdly catty bratty noelle temmie egg chara asgore muffet\
  burgerpants".split(" ");
 
@@ -53,39 +55,48 @@ console.log(allArrays);
 // Insporation and solution from https://github.com/SimonLeclere/discord-hangman
 // Credit where credit is due
 // Hangman Pictures (Currently very much not working)
-function getFigure(){
-return `
-  +---+
-      |
-      |
-      |
-     ===''', '''
-`
-}
-// Functions
-reset.addEventListener('click', function(e){
-    e.preventDefault();
-    wordDisplay.innerHTML = " ";
-});
-start.addEventListener('click', function(e){
-    e.preventDefault();
+function selectWord(){
     wordDisplay.innerHTML = " ";
     let chosenArray = select.value;
     console.log(select.value); // Works
-    let selectedArray = allArrays[chosenArray]; 
+    let selectedArray = allArrays[chosenArray];
     console.log(selectedArray) // Works
-    let randIndex = Math.floor(Math.random()*selectedArray.length);
+    let randIndex = Math.floor(Math.random() * selectedArray.length);
     let selectedWord = selectedArray[randIndex];
     let letterArray = selectedWord.split("");
     console.log(selectedWord.split(""));
     displayWord(letterArray);
-});
-function displayWord(wordArray){
-    for (let i = 0; i<wordArray.length; i++){
-        wordDisplay.innerHTML = wordDisplay.innerHTML + wordArray[i];
-    }
 }
 
+
+// Functions
+reset.addEventListener('click', function (e) {
+    e.preventDefault();
+    selectWord();
+});
+start.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (letterArray.includes(guess)){
+        
+    }
+
+})
+function displayWord(wordArray) {
+    let blanks = [];
+    wordArray.forEach(i => {
+        if (wordArray[i]=="-"){
+            blanks.push("-");
+        }
+        else{
+            blanks.push("_");
+        }
+    })
+    console.log(blanks);
+    for (let i = 0; i<blanks.length; i++){
+    wordDisplay.innerHTML = wordDisplay.innerHTML + blanks[i] +" ";
+    }
+}
+selectWord();
 //function start(){
 
 //}
