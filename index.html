@@ -8,15 +8,44 @@
     <title>Hangman</title>
 </head>
 <body>
-    <h2>Hangman</h2>
+    <h1>Hangman</h1>
     <h3>Select a category and then click the button to start a game!</h3>
+    <h4>When a new category is selected, click the "New Game" button to get your new word.</h4>
     <div id="main-container">
         <div id="hangman-display">
-            <div id="usedLetters"></div>
+            <canvas id="canvas" width="300" height="450">Your browser </canvas>
+            <div id="missedLetters">Wrong Letters: </div>
             <div id="wordDisplay"></div>
+            <div id="keyboard">
+                <button value="a" class="letter">a</button>
+                <button value="b" class="letter">b</button>
+                <button value="c" class="letter">c</button>
+                <button value="d" class="letter">d</button>
+                <button value="e" class="letter">e</button>
+                <button value="f" class="letter">f</button>
+                <button value="g" class="letter">g</button>
+                <button value="h" class="letter">h</button>
+                <button value="i" class="letter">i</button>
+                <button value="j" class="letter">j</button>
+                <button value="k" class="letter">k</button>
+                <button value="l" class="letter">l</button>
+                <button value="m" class="letter">m</button>
+                <button value="n" class="letter">n</button>
+                <button value="o" class="letter">o</button>
+                <button value="p" class="letter">p</button>
+                <button value="q" class="letter">q</button>
+                <button value="r" class="letter">r</button>
+                <button value="s" class="letter">s</button>
+                <button value="t" class="letter">t</button>
+                <button value="u" class="letter">u</button>
+                <button value="v" class="letter">v</button>
+                <button value="w" class="letter">w</button>
+                <button value="x" class="letter">x</button>
+                <button value="y" class="letter">y</button>
+                <button value="z" class="letter">z</button>
+            </div>
         </div>
         <form id="guess-field">
-            <input type="text" id="guess">
             <select id="select">
                 <option value="3">Pokemon</option>
                 <option value="5">Undertale Characters</option>
@@ -25,10 +54,10 @@
                 <option value="1">TV Shows</option>
                 <option value="2">Movies</option>
             </select>
-            <button id="start">Guess</button>
             <button id="reset">New Game</button>
         </form>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
 <script src="app.js"></script>
 </html>

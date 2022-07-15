@@ -1,0 +1,24 @@
+body{
+    background-color: blanchedalmond;
+    margin: 10px;
+}
+canvas{
+    background-color: azure;
+    border: black solid 3px;
+}
+#wordDisplay{
+    padding:15px;
+}
+#keyboard{
+    padding:10px;
+    width:fit-content;
+    background-color: aliceblue;
+    border: 1px;
+    border-radius: 10px ;
+    grid-template-columns: repeat(13, 50px);
+    grid-template-rows: (2, 50px);
+}
+.button{
+    display:grid;
+    
+}
